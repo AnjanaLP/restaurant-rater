@@ -7,10 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-
- # rails g migration add_email_index_to_users
- #
- # def change
- #   add_column :users, :email_index, unique: true
- # end
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 8 }
 end
