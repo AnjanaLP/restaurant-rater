@@ -1,7 +1,7 @@
 <div class="alert alert-danger">
-  <% if @user.errors.any? %>
+  <% if object.errors.any? %>
     <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>

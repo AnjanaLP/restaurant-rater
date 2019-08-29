@@ -1,4 +1,8 @@
 class Restaurant < ApplicationRecord
 
-  validates_presence_of :name, :address_1, :address_2, :city
+  validates :name, presence: true
+  validates :address_1, presence: { message: "- please enter building name/number"}
+  validates :address_2, presence: { message: "- please enter street name"} 
+  validates :city, presence: true
+  validates :county, presence: true
 end

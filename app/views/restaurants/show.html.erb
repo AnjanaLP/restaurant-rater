@@ -1,0 +1,13 @@
+<% provide(:title, @restaurant.name) %>
+<h1><%= @restaurant.name %></h1>
+
+<p><strong>Description:</strong> <%= @restaurant.description %></p>
+
+<p><strong>Address:</strong> <%= @restaurant.address_1 %> <%= @restaurant.address_2 %>,
+                             <%= @restaurant.city %>, <%= @restaurant.county %></p>
+
+<p><strong>Phone:</strong> <%= @restaurant.phone %></p>
+
+<p><strong>Email:</strong> <%= @restaurant.email %></p>
+
+<h2>Reviews</h2>

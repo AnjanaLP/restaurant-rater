@@ -3,7 +3,7 @@ require 'test_helper'
 class RestaurantTest < ActiveSupport::TestCase
   def setup
     @restaurant = Restaurant.new(name: "Test Restaurant", address_1: "12", address_2: "Baker Street",
-                                 city: "London")
+                                 city: "Weybridge", county: "Surrey")
   end
 
   test "validation should accept valid restaurants" do
@@ -15,10 +15,11 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_not @restaurant.valid?
   end
 
-  test "basic address should be present" do
+  test "address should be present" do
     @restaurant.address_1 = "    "
     @restaurant.address_2 = "    "
     @restaurant.city = "    "
+    @restaurant.county = "    "
     assert_not @restaurant.valid?
   end
 end

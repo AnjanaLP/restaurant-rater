@@ -2,5 +2,6 @@
   <h1>Welcome to Restaurant Rater</h1>
   <% unless logged_in? %>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <% end %> 
+  <% end %>
+    <%= link_to "Write a review!", new_restaurant_path, class: "btn btn-lg btn-primary" %>
 </div>
