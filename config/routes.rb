@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/login',                to: 'sessions#new'
   post '/login',               to: 'sessions#create'
   delete 'logout',             to: 'sessions#destroy'
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews, except: [:index, :show]
+  end
 end
