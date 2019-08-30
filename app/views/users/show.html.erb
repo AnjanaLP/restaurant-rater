@@ -1,2 +1,4 @@
-
+<% provide(:title, @user.name) %>
 <h1>Hello, <%= @user.name %>!</h1>
+
+<%= link_to "Write a review", new_restaurant_path, class: "btn btn-lg" %>
