@@ -20,7 +20,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect create unless logged in" do
     assert_no_difference 'Restaurant.count' do
-      post restaurants_path, params: { restaurant: { name: "New Restaurant", category: Category.first,
+      post restaurants_path, params: { restaurant: { name: "New Restaurant", category: categories(:one),
                                        address_1: "20", address_2: "New Street", city: "Weybridge",
                                        county: "Surrey" } }
     end

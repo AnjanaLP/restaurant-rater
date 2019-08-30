@@ -12,4 +12,10 @@
 
 <p><strong>Email:</strong> <%= @restaurant.email %></p>
 
-<h2>Reviews</h2>
+<h2>Reviews (<%= @restaurant.reviews.count %>)</h2>
+
+<% @reviews.each do |review| %>
+  <p><%= review.content %></p>
+<% end %>
+
+<%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>

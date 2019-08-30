@@ -7,6 +7,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @reviews = Review.where(restaurant_id: @restaurant)
   end
 
   def create
@@ -23,12 +24,5 @@ class RestaurantsController < ApplicationController
     def restaurant_params
       params.require(:restaurant).permit(:name, :description, :category_id, :address_1, :address_2,
                                          :city, :county, :phone, :email)
-    end
-
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please login to continue"
-        redirect_to login_path
-      end
     end
 end

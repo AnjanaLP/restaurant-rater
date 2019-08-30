@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RestaurantTest < ActiveSupport::TestCase
   def setup
-    @restaurant = Restaurant.new(name: "Test Restaurant", category: Category.first, address_1: "12",
+    @restaurant = Restaurant.new(name: "Test Restaurant", category: categories(:one), address_1: "12",
                                  address_2: "Baker Street", city: "Weybridge", county: "Surrey")
   end
 
