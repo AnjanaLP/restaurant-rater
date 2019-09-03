@@ -1,5 +1,5 @@
 <% provide(:title, @restaurant.name) %>
-<h1><%= @restaurant.name %></h1>
+<h1><%= @restaurant.name %> <%= "*" * @avg_rating %></h1>
 
 <p><strong>Description:</strong> <%= @restaurant.description %></p>
 
@@ -15,7 +15,7 @@
 <h2>Reviews (<%= @restaurant.reviews.count %>)</h2>
 
 <% @reviews.each do |review| %>
-  <p><%= review.content %></p>
+  <p><%= "*" * review.rating %> <%= review.content %><p>
 <% end %>
 
 <%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>

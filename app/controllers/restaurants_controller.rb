@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = Review.where(restaurant_id: @restaurant)
+    @reviews.empty? ? @avg_rating = 0 : @avg_rating = @reviews.average(:rating).round
   end
 
   def create
