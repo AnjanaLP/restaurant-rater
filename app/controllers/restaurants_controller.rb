@@ -20,6 +20,9 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+    @restaurants = Restaurant.search(params)
+  end
 
   private
     def restaurant_params

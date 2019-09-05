@@ -1,4 +1,6 @@
 <% provide(:title, @user.name) %>
-<h1>Hello, <%= @user.name %>!</h1>
+<div class="center">
+  <h1>Hello, <%= @user.name.capitalize %>!</h1>
+</div>
 
-<%= link_to "Write a review", new_restaurant_path, class: "btn btn-lg" %>
+<%= render 'shared/search_form' %>

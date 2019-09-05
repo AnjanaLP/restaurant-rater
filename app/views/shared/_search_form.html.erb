@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>Find a restaurant</p>
+    <%= form_tag search_restaurants_path, method: :get do |f| %>
+      <%= text_field_tag :search, nil, placeholder: "Enter restaurant's name" %>
+      <%= text_field_tag :location, nil, placeholder: "Enter restaurant's city or county" %>
+      <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id] } ) %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <p> New restaurant to review? <%= link_to "Add a restaurant!", new_restaurant_path %></p>
+  </div>
+</div>

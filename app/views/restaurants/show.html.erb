@@ -5,8 +5,8 @@
 
 <p><strong>Category:</strong> <%= @restaurant.category.name %></p>
 
-<p><strong>Address:</strong> <%= @restaurant.address_1 %> <%= @restaurant.address_2 %>,
-                             <%= @restaurant.city %>, <%= @restaurant.county %></p>
+<p><strong>Address:</strong> <%= [@restaurant.address_1, @restaurant.address_2, @restaurant.city,
+                                  @restaurant.county].reject(&:blank?).join(", ") %></p>
 
 <p><strong>Phone:</strong> <%= @restaurant.phone %></p>
 

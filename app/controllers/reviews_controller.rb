@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_restaurant
-  before_action :logged_in_user
+  before_action :set_restaurant, only: [:new, :create]
+  before_action :logged_in_user, only: [:new, :create]
 
   def new
     @review = Review.new(restaurant: @restaurant)

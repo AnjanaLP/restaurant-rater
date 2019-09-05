@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   delete 'logout',             to: 'sessions#destroy'
   resources :restaurants do
     resources :reviews, except: [:index, :show]
+    collection do
+      get 'search'
+    end
   end
 end
