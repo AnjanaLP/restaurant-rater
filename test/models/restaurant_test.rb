@@ -2,8 +2,8 @@ require 'test_helper'
 
 class RestaurantTest < ActiveSupport::TestCase
   def setup
-    @restaurant = Restaurant.new(name: "Test Restaurant", category: categories(:one),
-                                city: "Weybridge", county: "Surrey")
+    @restaurant = Restaurant.new(name: "Test Restaurant", category_id: categories(:one).id,
+                                 city: "Weybridge", county: "Surrey")
   end
 
   test "validation should accept valid restaurants" do
