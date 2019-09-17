@@ -16,7 +16,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect new unless logged in" do
     get new_restaurant_review_path(@restaurant)
     assert_not flash.empty?
-    assert_redirected_to login_path
+    assert_redirected_to login_url
   end
 
   test "should redirect create unless logged in" do
@@ -24,6 +24,6 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
       post restaurant_reviews_path(@restaurant), params: { content: "Amazing food", rating: 5 }
     end
     assert_not flash.empty?
-    assert_redirected_to login_path
+    assert_redirected_to login_url
   end
 end

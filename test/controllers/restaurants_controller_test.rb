@@ -15,7 +15,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect new unless logged in" do
     get new_restaurant_path
     assert_not flash.empty?
-    assert_redirected_to login_path
+    assert_redirected_to login_url
   end
 
   test "should redirect create unless logged in" do
@@ -25,6 +25,6 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
                                        county: "Surrey" } }
     end
     assert_not flash.empty?
-    assert_redirected_to login_path
+    assert_redirected_to login_url
   end
 end
