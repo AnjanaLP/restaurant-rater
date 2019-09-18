@@ -1,13 +1,12 @@
 <% provide(:title, "Search results") %>
 
-<% if @restaurants.empty? %>
-  <h3> Sorry, no restaurants found....</h3>
-<% else %>
-  <h3> We found the following restaurants....</h3>
-
+<div>
+  <h3> <%= @restaurants.count %> restaurants match your search criteria ....</h3>
+  <p>Can't find what you're looking for? <%= link_to "Add a restaurant", new_restaurant_path %></p>
+</div>
+<div>
   <% @restaurants.each do |restaurant| %>
     <p><%= link_to restaurant.name, restaurant, class: "btn btn-lg" %></p>
   <% end %>
-<% end %>
-
-<p>Can't find what you're looking for? <%= link_to "Add a restaurant", new_restaurant_path %></p>
+  <%= will_paginate @restaurants %>
+</div>

@@ -1,21 +1,25 @@
 <% provide(:title, @restaurant.name) %>
-<h1><%= @restaurant.name %> <%= "*" * @avg_rating %></h1>
+<div>
+  <h1><%= @restaurant.name %> <%= "*" * @avg_rating %></h1>
 
-<p><strong>Description:</strong> <%= @restaurant.description %></p>
+  <p><strong>Description:</strong> <%= @restaurant.description %></p>
 
-<p><strong>Category:</strong> <%= @restaurant.category.name %></p>
+  <p><strong>Category:</strong> <%= @restaurant.category.name %></p>
 
-<p><strong>Address:</strong> <%= [@restaurant.address_1, @restaurant.address_2, @restaurant.city,
-                                  @restaurant.county].reject(&:blank?).join(", ") %></p>
+  <p><strong>Address:</strong> <%= [@restaurant.address_1, @restaurant.address_2, @restaurant.city,
+                                    @restaurant.county].reject(&:blank?).join(", ") %></p>
 
-<p><strong>Phone:</strong> <%= @restaurant.phone %></p>
+  <p><strong>Phone:</strong> <%= @restaurant.phone %></p>
 
-<p><strong>Email:</strong> <%= @restaurant.email %></p>
-
-<h2>Reviews (<%= @restaurant.reviews.count %>)</h2>
-
-<% @reviews.each do |review| %>
-  <p><%= "*" * review.rating %> <%= review.content %><p>
-<% end %>
-
-<%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>
+  <p><strong>Email:</strong> <%= @restaurant.email %></p>
+</div>
+<div>
+  <h2>Reviews (<%= @restaurant.reviews.count %>)
+  <%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></h2>
+  <div class="reviews">
+    <% @paginated_reviews.each do |review| %>
+      <li><%= "*" * review.rating %> <%= review.content %><li>
+    <% end %>
+    <%= will_paginate @paginated_reviews %>
+  </div>
+</div>

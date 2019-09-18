@@ -1,7 +1,7 @@
 <li>
-  <%= link_to review.restaurant.name, review.user %>
+  <%= link_to review.restaurant.name, review.restaurant %> <%= "*" * review.rating %>
   <%= review.content %>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(review.created_at) %> ago.
+    Posted on <%= review.created_at.strftime("%d/%m/%Y") %>
   </span>
 </li>
