@@ -22,8 +22,17 @@ class ReviewTest < ActiveSupport::TestCase
     assert_not @review.valid?
   end
 
+  test "content should be at most 1000 characters" do
+    @review.content = "a" * 1001
+    assert_not @review.valid?
+  end
+
   test "rating should be present" do
     @review.rating = "    "
     assert_not @review.valid?
+  end
+
+  test "order should be most recent first" do
+    assert_equal reviews(:most_recent), Review.first
   end
 end

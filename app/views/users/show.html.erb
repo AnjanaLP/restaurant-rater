@@ -1,6 +1,15 @@
 <% provide(:title, @user.name) %>
-<div class="center">
-  <h1>Hello, <%= @user.name.capitalize %>!</h1>
-</div>
 
-<%= render 'shared/search_form' %>
+<h1>Hello, <%= @user.name.capitalize %></h1>
+<aside class="col-md-4">
+  <h3>Post a new review </h3>
+  <%= render 'shared/search_form' %>
+</aside>
+<div class="col-md-8">
+  <% if @user.reviews.any? %>
+    <h3>Previous reviews (<%= @user.reviews.count %>)</h3>
+    <ol class="reviews">
+      <%= render @reviews %>
+    </ol>
+  <% end %>
+</div>

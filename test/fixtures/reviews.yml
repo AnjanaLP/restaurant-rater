@@ -1,9 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+terrible:
+  content: "The worst restaurant I have ever been to!"
+  created_at: <%= 10.minutes.ago %>
 
-one:
-  content: MyText
-  rating: 1
+amazing:
+  content: "The best restaurant I have visited!"
+  created_at: <%= 3.years.ago %>
 
-two:
-  content: MyText
-  rating: 1
+ok:
+  content: "The restaurant was just average."
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "Just ate there."
+  created_at: <%= Time.zone.now %>
