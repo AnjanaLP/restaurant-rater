@@ -2,7 +2,12 @@ class Restaurant < ApplicationRecord
   belongs_to :category
   has_many :reviews
 
-  validates :name, presence: true
+  before_validation { name.capitalize! }
+  before_validation { city.capitalize! }
+  before_validation { county.capitalize! }
+
+  validates :name, presence: true, uniqueness: { scope: [:category_id, :city, :county],
+                                   message: " of restaurant already exists in selected category and location" }
   validates :city, presence: true
   validates :county, presence: true
 
