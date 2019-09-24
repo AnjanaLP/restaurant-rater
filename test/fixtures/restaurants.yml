@@ -1,23 +1,47 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
+  name: Pizza Town
   description: MyText
   address_1: MyString
   address_2: MyString
-  city: MyString
-  county: MyString
+  city: Marylebone
+  county: London
   postcode: MyString
   phone: MyString
   email: MyString
+  category: two
 
 two:
-  name: MyString
+  name: Burger Joint
   description: MyText
   address_1: MyString
   address_2: MyString
-  city: MyString
-  county: MyString
+  city: Chelsea
+  county: London
   postcode: MyString
   phone: MyString
   email: MyString
+  category: three
+
+three:
+  name: Sushi Room
+  description: MyText
+  address_1: MyString
+  address_2: MyString
+  city: Weybridge
+  county: Surrey
+  postcode: MyString
+  phone: MyString
+  email: MyString
+  category: one
+
+four:
+  name: Cecconis
+  description: MyText
+  address_1: MyString
+  address_2: MyString
+  city: Mayfair
+  county: London
+  postcode: MyString
+  phone: MyString
+  email: MyString
+  category: two

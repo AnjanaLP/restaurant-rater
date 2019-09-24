@@ -18,7 +18,13 @@
   <%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></h2>
   <div class="reviews">
     <% @paginated_reviews.each do |review| %>
-      <li><%= "*" * review.rating %> <%= review.content %><li>
+      <li>
+        <%= "*" * review.rating %> <%= review.content %>
+        <p class="timestamp">
+          Posted on <%= review.created_at.strftime("%d/%m/%Y") %>
+          by <%= link_to review.user.name, review.user %>
+        </p>
+      </li>
     <% end %>
     <%= will_paginate @paginated_reviews %>
   </div>
