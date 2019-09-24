@@ -7,7 +7,7 @@ class Restaurant < ApplicationRecord
   before_validation { county.capitalize! }
 
   validates :name, presence: true, uniqueness: { scope: [:category_id, :city, :county],
-                                   message: " of restaurant already exists in selected category and location" }
+                                   message: " error: restaurant already exists" }
   validates :city, presence: true
   validates :county, presence: true
 
