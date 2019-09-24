@@ -31,8 +31,8 @@ class ReviewsCreateTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'restaurants/show'
     assert_match content, response.body
-    assert_match "*" * 5, response.body
-    assert_select 'p.timestamp'
+    assert_select 'span.star-rating'
+    assert_select 'span.timestamp'
     assert_select "a[href=?]", user_path(@user), text: @user.name
     assert_select 'div.pagination'
   end

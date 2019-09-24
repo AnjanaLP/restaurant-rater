@@ -9,7 +9,12 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reviews = Review.where(restaurant_id: @restaurant)
     @paginated_reviews = @reviews.paginate(page: params[:page])
-    @reviews.empty? ? @avg_rating = 0 : @avg_rating = @reviews.average(:rating).round
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
+
   end
 
   def create

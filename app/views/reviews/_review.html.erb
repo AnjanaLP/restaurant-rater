@@ -1,6 +1,7 @@
 <li>
-  <%= link_to review.restaurant.name, review.restaurant %> <%= "*" * review.rating %>
-  <%= review.content %>
+  <%= link_to review.restaurant.name, review.restaurant %>
+  <span class="star-rating" data-score=<%= review.rating %> ></span>
+  <p> <%= review.content %> </p>
   <span class="timestamp">
     Posted on <%= review.created_at.strftime("%d/%m/%Y") %>
   </span>

@@ -16,7 +16,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_restaurant_path, count: 0
     @user.reviews.paginate(page: 1).each do |review|
       assert_match review.content, response.body
-      assert_match "*" * review.rating, response.body
+      assert_select 'span.star-rating'
       assert_select "a[href=?]", restaurant_path(review.restaurant)
       assert_select 'span.timestamp'
     end

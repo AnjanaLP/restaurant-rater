@@ -1,6 +1,8 @@
 <% provide(:title, @restaurant.name) %>
 <div>
-  <h1><%= @restaurant.name %> <%= "*" * @avg_rating %></h1>
+  <h1><%= @restaurant.name %>
+    <span class="star-rating" data-score=<%= @avg_rating %> ></span>
+  </h1>
 
   <p><strong>Description:</strong> <%= @restaurant.description %></p>
 
@@ -19,11 +21,12 @@
   <div class="reviews">
     <% @paginated_reviews.each do |review| %>
       <li>
-        <%= "*" * review.rating %> <%= review.content %>
-        <p class="timestamp">
+        <span class="star-rating" data-score=<%= review.rating %> ></span>
+        <p> <%= review.content %> </p>
+        <span class="timestamp">
           Posted on <%= review.created_at.strftime("%d/%m/%Y") %>
           by <%= link_to review.user.name, review.user %>
-        </p>
+        </span>
       </li>
     <% end %>
     <%= will_paginate @paginated_reviews %>
