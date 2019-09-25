@@ -4,8 +4,7 @@ class ReviewTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:anj)
-    @review = @user.reviews.build(content: "Great food", rating: 5)
-    @review.restaurant = restaurants(:one)
+    @review = @user.reviews.build(content: "Great food", rating: 5, restaurant_id: restaurants(:one).id)
   end
 
   test "validation should accept valid reviews" do

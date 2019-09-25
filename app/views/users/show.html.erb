@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<h1>Hello, <%= @user.name %></h1>
+<h1><%= @user.name %></h1>
 <% if current_user?(@user) %>
   <aside class="col-md-4">
     <h3>Post a new review </h3>
