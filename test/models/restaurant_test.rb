@@ -15,11 +15,11 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_not @restaurant.valid?
   end
 
-  test "name should be capitalised" do
-    lower_case_name = "donastia"
+  test "name should be titleized" do
+    lower_case_name = "blue grill"
     @restaurant.name = lower_case_name
     @restaurant.save
-    assert_equal lower_case_name.capitalize, @restaurant.reload.name
+    assert_equal lower_case_name.titleize, @restaurant.reload.name
   end
 
   test "city should be present" do
@@ -27,11 +27,11 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_not @restaurant.valid?
   end
 
-  test "city should be capitalised" do
-    lower_case_city = "weybridge"
+  test "city should be titleized" do
+    lower_case_city = "kingston upon thames"
     @restaurant.city = lower_case_city
     @restaurant.save
-    assert_equal lower_case_city.capitalize, @restaurant.reload.city
+    assert_equal lower_case_city.titleize, @restaurant.reload.city
   end
 
   test "county should be present" do
@@ -39,11 +39,11 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_not @restaurant.valid?
   end
 
-  test "county should be capitalised" do
+  test "county should be titleized" do
     lower_case_county = "weybridge"
     @restaurant.county = lower_case_county
     @restaurant.save
-    assert_equal lower_case_county.capitalize, @restaurant.reload.county
+    assert_equal lower_case_county.titleize, @restaurant.reload.county
   end
 
   test "restaurants should be unique" do
