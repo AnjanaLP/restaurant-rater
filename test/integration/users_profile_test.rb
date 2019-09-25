@@ -3,9 +3,10 @@ require 'test_helper'
 class UsersProfileTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:anj)
+    @admin = users(:bob)
   end
 
-  test "profile display" do
+  test "profile display of users including pagination" do
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
@@ -24,5 +25,22 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_select "form input", 4
     assert_select "a[href=?]", new_restaurant_path
+  end
+
+  test "profile display of users as a non admin" do
+    log_in_as(@user)
+    get user_path(@admin)
+    assert_select 'a', text: 'Delete User', count: 0
+  end
+
+  test "profile display of users as an admin" do
+    log_in_as(@admin)
+    get user_path(@admin)
+    assert_select 'a', text: 'Delete User', count: 0
+    get user_path(@user)
+    assert_select 'a', text: 'Delete User'
+    assert_difference 'User.count', -1 do
+      delete user_path(@user)
+    end
   end
 end

@@ -9,6 +9,10 @@ japanese = Category.where(name: "Japanese").first_or_create(name: "Japanese")
 mexican = Category.where(name: "Mexican").first_or_create(name: "Mexican")
 thai = Category.where(name: "Thai").first_or_create(name: "Thai")
 
+# Admin user
+User.create!(name:  "Test User", email: "test@example.com",
+             password: "test_user", password_confirmation:"test_user", admin: true)
+
 # Sample users
 50.times do |n|
   User.create!(name: Faker::Name.name, email: "example-#{n+1}@example.com",
