@@ -3,7 +3,7 @@ require 'test_helper'
 class RestaurantsSearchTest < ActionDispatch::IntegrationTest
 
   test 'restaurants search results' do
-    get search_restaurants_path, params: { category: categories(:two).id, location: "London" }
+    get search_restaurants_path, params: { category: categories(:two).id, location: "london" }
     assert_template 'restaurants/search'
     assert_select 'title', full_title("Search results")
     assert_select 'h3', text: "2 restaurants match your search criteria ...."

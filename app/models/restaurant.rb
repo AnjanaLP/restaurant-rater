@@ -13,9 +13,9 @@ class Restaurant < ApplicationRecord
 
   def Restaurant.search(params)
     restaurants = Restaurant.where(category_id: params[:category].to_i)
-    restaurants = restaurants.where("name like ?", "%#{params[:search]}%") if params[:search].present?
-    restaurants = restaurants.where("city like ? or county like ?", "%#{params[:location]}%",
-                                    "%#{params[:location]}%") if params[:location].present?
+    restaurants = restaurants.where("name like ?", "%#{params[:search].capitalize}%") if params[:search].present?
+    restaurants = restaurants.where("city like ? or county like ?", "%#{params[:location].capitalize}%",
+                                    "%#{params[:location].capitalize}%") if params[:location].present?
     restaurants
   end
 end
