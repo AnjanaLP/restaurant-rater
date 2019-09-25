@@ -32,14 +32,14 @@ users_group_1 = User.all[0..24]
 users_group_2 = User.all[25..49]
 33.times do
   users_group_1.each do |user|
-    review = user.reviews.create!(content: Faker::Restaurant.review, rating: rand(1..5), restaurant_id: rand(1..50))
+    review = user.reviews.create!(content: Faker::Restaurant.review, rating: rand(1..5), restaurant_id: rand(1..100))
     review.update_attribute(:created_at, rand(1..500).days.ago)
   end
 end
 
 4.times do
   users_group_2.each do |user|
-    review = user.reviews.create!(content: Faker::Restaurant.review, rating: rand(1..5), restaurant_id: rand(1..50))
+    review = user.reviews.create!(content: Faker::Restaurant.review, rating: rand(1..5), restaurant_id: rand(1..100))
     review.update_attribute(:created_at, rand(1..50).days.ago)
   end
 end
