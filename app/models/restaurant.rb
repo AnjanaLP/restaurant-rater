@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   belongs_to :category
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   before_validation { self.name = name.titleize }
   before_validation { self.city = city.titleize }

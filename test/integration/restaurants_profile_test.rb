@@ -47,8 +47,10 @@ class RestaurantsProfileTest < ActionDispatch::IntegrationTest
     get restaurant_path(@restaurant)
     assert_select 'h1> a', text: 'Edit Restaurant'
     assert_select 'h1> a', text: 'Delete Restaurant'
+    assert_equal Review.count, 34
     assert_difference 'Restaurant.count', -1 do
       delete restaurant_path(@restaurant)
     end
+    assert_equal Review.count, 0
   end
 end

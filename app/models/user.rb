@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   before_save { email.downcase! }
 

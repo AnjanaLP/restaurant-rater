@@ -40,8 +40,10 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'Delete User', count: 0
     get user_path(@user)
     assert_select 'h1> a', text: 'Delete User'
+    assert_equal Review.count, 34
     assert_difference 'User.count', -1 do
       delete user_path(@user)
     end
+    assert_equal Review.count, 0
   end
 end
