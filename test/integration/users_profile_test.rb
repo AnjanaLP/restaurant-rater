@@ -6,11 +6,12 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     @admin = users(:bob)
   end
 
-  test "profile display of users including pagination" do
+  test "profile display of a user including pagination of reviews" do
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
+    assert_select 'a', text: 'Delete User', count: 0
     assert_match @user.reviews.count.to_s, response.body
     assert_select 'div.pagination'
     assert_select 'form',false
@@ -27,18 +28,18 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_restaurant_path
   end
 
-  test "profile display of users as a non admin" do
+  test "profile display of a user as non admin" do
     log_in_as(@user)
     get user_path(@admin)
     assert_select 'a', text: 'Delete User', count: 0
   end
 
-  test "profile display of users as an admin" do
+  test "profile display of a user as an admin" do
     log_in_as(@admin)
     get user_path(@admin)
     assert_select 'a', text: 'Delete User', count: 0
     get user_path(@user)
-    assert_select 'a', text: 'Delete User'
+    assert_select 'h1> a', text: 'Delete User'
     assert_difference 'User.count', -1 do
       delete user_path(@user)
     end

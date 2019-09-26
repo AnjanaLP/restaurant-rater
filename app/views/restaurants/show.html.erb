@@ -2,6 +2,11 @@
 <div>
   <h1><%= @restaurant.name %>
     <span class="star-rating" data-score=<%= @avg_rating %> ></span>
+    <% if current_user.try(:admin?) %>
+     <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), class: 'btn btn-primary' %>
+     <%= link_to "Delete Restaurant", @restaurant, method: :delete, data: { confirm: "You sure?" },
+                                                   class: 'btn btn-danger' %>
+    <% end %>
   </h1>
 
   <p><strong>Description:</strong> <%= @restaurant.description %></p>

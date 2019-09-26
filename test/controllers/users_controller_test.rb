@@ -19,9 +19,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect update when not logged in" do
-    patch user_path(@user), params: { user: { name: "anjana", email: "not_logged_in@example.com" } }
+    updated_name = "Updated Name"
+    patch user_path(@user), params: { user: { name: updated_name } }
     assert_not flash.empty?
     assert_redirected_to login_url
+    assert_not_equal @user.reload.name, updated_name
   end
 
   test "should redirect edit when logged in as the wrong user" do
@@ -32,10 +34,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect update when logged in as the wrong user" do
+    updated_name = "Updated Name"
     log_in_as(@other_user)
-    patch user_path(@user), params: { user: { name: "Wrong User", email: "wrong_user@example.com" } }
+    patch user_path(@user), params: { user: { name: updated_name } }
     assert flash.empty?
     assert_redirected_to root_url
+    assert_not_equal @user.reload.name, updated_name
   end
 
   test "should not allow the admin attribute to be edited via the web" do

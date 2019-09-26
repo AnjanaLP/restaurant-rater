@@ -3,7 +3,7 @@
 <h1><%= @user.name %>
   <% if current_user.try(:admin?) && !current_user?(@user) %>
    <%= link_to "Delete User", @user, method: :delete, data: { confirm: "You sure?" },
-       class: 'btn btn-danger btn-mini' %>
+                                     class: 'btn btn-danger' %>
   <% end %>
 </h1>
 <% if current_user?(@user) %>
