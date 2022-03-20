@@ -2,7 +2,7 @@
 
 https://lit-beyond-17109.herokuapp.com
 
-An application to duplicate the core functionality of Yelp, using Rails' MVC architectural pattern to divide concerns and Minitest for full model, controller and integration tests to experience a new testing framework compared to my usual go-to of Rspec & Cabybara. I have also decided to build out full user signup, login and authorisation from scratch without the use of a gem to gain a deeper understanding of the system to make customisation of any gems easier in future. I have configured the production application to use SSL & Puma and deployed to Heroku.
+An application to duplicate the core functionality of Yelp, using Rails' MVC architectural pattern to divide concerns and Minitest for full model, controller and integration tests to experience a new testing framework. I have also decided to build out full user signup, login and authorisation from scratch without the use of a gem to gain a deeper understanding of the system to make customisation of any gems easier in future. I have configured the production application to use SSL & Puma and deployed to Heroku.
 
 ## Specifications
 - Logged in users can create new restaurants - specifying the name, city, county and cuisine type as minimum requirements
