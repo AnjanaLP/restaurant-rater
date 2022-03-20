@@ -7,7 +7,7 @@ An application to duplicate the core functionality of Yelp, using Rails' MVC arc
 ## Specifications
 - Logged in users can create new restaurants - specifying the name, city, county and cuisine type as minimum requirements
 - Logged in users can leave reviews for restaurants - they must provide a numerical score (1-5) and a comment (maximum 1000 characters) about their experience
-- Logged in users can manage their reviews and personal information via their user profile page
+- Logged in users can change their profile information
 - Any user can visit the profile pages of other users to see a history of their reviews in reverse chronological order
 - Any user can search for restaurants based on their required criteria (by name/ location /cuisine type)
 - The search returns a list of restaurants matching the search criteria. Selecting a restaurant forwards the user to the restaurant's profile page.
