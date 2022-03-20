@@ -37,13 +37,19 @@ section {
   background-color: #337ab7;
 }
 
-.navbar-inverse .navbar-nav li a {
-  color: #fff;
-  &:hover {
-    text-decoration: underline;
+.navbar-inverse .navbar-nav {
+  li a {
+    color: #fff;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .dropdown-menu li a {
+    color: #337ab7;
   }
 }
 
+.navbar-nav
 
 /* footer */
 
