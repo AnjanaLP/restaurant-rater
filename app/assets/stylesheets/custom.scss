@@ -33,6 +33,18 @@ section {
   }
 }
 
+.navbar {
+  background-color: #337ab7;
+}
+
+.navbar-inverse .navbar-nav li a {
+  color: #fff;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
 /* footer */
 
 footer {
