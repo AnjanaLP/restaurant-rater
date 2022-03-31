@@ -19,3 +19,18 @@ An application to duplicate the core functionality of Yelp, using Rails' MVC arc
 - Use of helper methods
 - Friendly forwarding by redirecting the user to the protected page they were trying to access before being prompted to login
 - Admin status required to edit/delete restaurants and delete users.
+
+### Homepage
+![Imgur](https://i.imgur.com/vzGjePT.png?1)
+
+### Signup page
+![Imgur](https://i.imgur.com/eR9bFLQ.png?3)
+
+### Search results
+![Imgur](https://i.imgur.com/tENBTxG.png?1)
+
+### Restaurant profile page
+![Imgur](https://i.imgur.com/eEjgT5j.png?1)
+
+### Admin rights
+![Imgur](https://i.imgur.com/NZtXVCt.png?1)
