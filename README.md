@@ -1,7 +1,4 @@
 # Restaurant-Rater
-
-https://anjana-restaurant-rater.herokuapp.com
-
 An application to duplicate the core functionality of Yelp, using Rails' MVC architectural pattern to divide concerns and Minitest for full model, controller and integration tests to experience a new testing framework. I have also decided to build out full user signup, login and authorisation from scratch without the use of a gem to gain a deeper understanding of the system to make customisation of any gems easier in future. I have configured the production application to use SSL & Puma and deployed to Heroku.
 
 ## Specifications
@@ -34,3 +31,42 @@ An application to duplicate the core functionality of Yelp, using Rails' MVC arc
 
 ### Admin rights
 ![Imgur](https://i.imgur.com/NZtXVCt.png?1)
+
+## How to use
+Visit https://anjana-restaurant-rater.herokuapp.com<br>
+
+To use the app locally, please follow the below instructions:
+
+### Install project dependencies
+Clone the repo to your local machine, change into the directory, then:
+```
+$ bundle install
+```
+
+### Setup the databases
+```
+$ rails db:create
+$ rails db:migrate
+
+```
+
+### Run the app
+```
+$ rails server
+```
+Visit http://localhost:3000
+
+### Run tests
+```
+$ rails test
+```
+
+## Technologies used
+* Bootstrap
+* CSS
+* Heroku
+* HTML
+* JavaScript
+* jQuery
+* PostgreSQL
+* Ruby on Rails 
